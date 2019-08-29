@@ -7,7 +7,6 @@
 #include <iostream>
 using namespace std;
 #include <cstdlib>
-#include <ctime>
 
 int turn(bool playerTurn, int playerScore, int computerScore) {
     // If player turn is true, it is the user's turn. Else, it is the AI's turn
@@ -29,7 +28,7 @@ int turn(bool playerTurn, int playerScore, int computerScore) {
             }
             pot += currentRoll;
             if (playerScore + pot >= 50) {
-                cout << "Die roll : " << currentRoll << "     Pot : " << pot << "     (R)oll again or (H)old? ";
+                cout << "Die roll : " << currentRoll << "     Pot : " << pot;
                 return pot;
             }
             cout << "Die roll : " << currentRoll << "     Pot : " << pot << "     (R)oll again or (H)old? ";
