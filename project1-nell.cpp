@@ -2,6 +2,7 @@
 // Email: gjn96p@mail.umkc.edu
 // Class: CS 201R @ 5:30-6:45 T/Th
 // Instructor: Michael Essmyer
+// Project #1
 
 #include <iostream>
 using namespace std;
