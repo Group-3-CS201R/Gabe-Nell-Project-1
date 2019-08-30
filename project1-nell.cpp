@@ -9,7 +9,6 @@ using namespace std;
 #include <cstdlib>
 
 int computerTurn(int currentRoll, int pot, int computerScore) {
-    cout << "AI Turn" << endl;
     currentRoll = (rand() % 6) + 1;
     // the AI automatically ends its turn at a pot value of 20, so loop continues until either
     // 1.) the pot reaches 20 or 2.) the dice roll is a 1
@@ -34,7 +33,6 @@ int computerTurn(int currentRoll, int pot, int computerScore) {
 
 int playerTurn(int currentRoll, int pot, int playerScore) {
     char playerChoice;
-    cout << "Players Turn" << endl;
     currentRoll = (rand() % 6) + 1;
     // continues to roll dice until either 1.) player presses h to hold or 2.) a 1 is rolled
     while (true) {
@@ -57,6 +55,7 @@ int playerTurn(int currentRoll, int pot, int playerScore) {
             cout << "     (R)oll again or (H)old? ";
             cin >> playerChoice;
         }
+        cin.ignore();
         // r(R) means player wants to roll again, so gets new roll and restarts loop
         if (playerChoice == 'r' || playerChoice == 'R') {
             currentRoll = (rand() % 6) + 1;
@@ -74,8 +73,12 @@ int turn(bool whosTurn, int playerScore, int computerScore) {
     // If this evaluates to true, then it is the user's turn. This requires input from the user
     // so it needs its own individual block seperate from the AI functionality
     if (whosTurn) {
+        cout << "Players Turn";
+        cin.ignore();
         pot = playerTurn(currentRoll, pot, playerScore);    
     } else {
+        cout << "AI Turn";
+        cin.ignore();
         pot = computerTurn(currentRoll, pot, computerScore);
     }
     return pot;
